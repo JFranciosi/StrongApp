@@ -1,31 +1,29 @@
 <main class="main">
   <div class="content">
-    <h1>💪 PALESTRA ONLINE - Elenco Esercizi 💪</h1>
-    <marquee behavior="scroll" direction="left">🏋️ Benvenuto nel tuo programma di allenamento! 🏋️</marquee>
-    
+    <h1> PALESTRA ONLINE - Elenco Esercizi </h1>    
     <div class="button-container">
       <button class="btn-insert" (click)="insertExercise()">
-        ➕ INSERISCI NUOVO ESERCIZIO
+         INSERISCI NUOVO ESERCIZIO
       </button>
     </div>
 
     @for (item of exercises; track item.id) {
     <div class="exercise-card">
-      <h2>⭐ {{ item.name }} ⭐</h2>
-      <p><strong>🎯 Gruppo muscolare:</strong> {{ item.muscleGroup }}</p>
-      <p><strong>📊 Serie:</strong> {{ item.sets }} | <strong>🔢 Ripetizioni:</strong> {{ item.reps }}</p>
+      <h2>{{ item.name }}</h2>
+      <p><strong> Gruppo muscolare:</strong> {{ item.muscleGroup }}</p>
+      <p><strong> Serie:</strong> {{ item.sets }} | <strong> Ripetizioni:</strong> {{ item.reps }}</p>
       @if (item.weightKg) {
-      <p><strong>💪 Peso (kg):</strong> {{ item.weightKg }}</p>
+      <p><strong> Peso (kg):</strong> {{ item.weightKg }}</p>
       }
       @if (item.notes) {
-      <p><strong>📝 Note:</strong> {{ item.notes }}</p>
+      <p><strong> Note:</strong> {{ item.notes }}</p>
       }
       <div class="button-group">
         <button class="btn-edit" (click)="editExercise(item.id)">
-          ✏️ MODIFICA
+           MODIFICA
         </button>
         <button class="btn-delete" (click)="deleteExercise(item.id)">
-          🗑️ ELIMINA
+           ELIMINA
         </button>
       </div>
     </div>

@@ -68,20 +68,20 @@ export class ExerciseCard {
 
   insertExercise() {
     console.log('Inserisci nuovo esercizio');
-    alert('Funzione INSERISCI - Da implementare! 🎉');
+    alert('Funzione INSERISCI - Da implementare! ');
   }
 
   editExercise(id: number) {
     console.log('Modifica esercizio con id:', id);
-    alert(`Funzione MODIFICA per esercizio ID ${id} - Da implementare! ✏️`);
+    alert(`Funzione MODIFICA per esercizio ID ${id} - Da implementare!`);
   }
 
   deleteExercise(id: number) {
     console.log('Elimina esercizio con id:', id);
-    const confirmed = confirm(`Sei sicuro di voler eliminare questo esercizio? 🗑️`);
+    const confirmed = confirm(`Sei sicuro di voler eliminare questo esercizio?`);
     if (confirmed) {
       this.exercises = this.exercises.filter(ex => ex.id !== id);
-      alert('Esercizio eliminato! ✅');
+      alert('Esercizio eliminato!');
     }
   }
 
