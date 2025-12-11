@@ -1,0 +1,136 @@
+:host {
+    display: block;
+    min-height: 100vh;
+    padding: 2rem;
+    background: radial-gradient(circle at 50% -20%, #111 0%, #000 80%);
+}
+
+.main-container {
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+/* Reuse the Liquid Card Logic */
+.liquid-card {
+    position: relative;
+    height: 400px;
+}
+
+.glass-surface {
+    position: absolute;
+    inset: 0;
+    border-radius: 30px;
+    background: var(--ios-glass-pressed);
+    /* Concave Default */
+    backdrop-filter: blur(30px) saturate(180%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: inset 0 10px 40px rgba(0, 0, 0, 0.6);
+}
+
+.concave-valley {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.page-title {
+    color: rgba(255, 255, 255, 0.5);
+    font-size: 1rem;
+    letter-spacing: 3px;
+    font-family: var(--font-ios);
+}
+
+/* Plasma Inputs */
+.plasma-input {
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--plasma-white);
+    text-align: center;
+    width: 100%;
+    font-family: var(--font-mono);
+    outline: none;
+    font-size: 2rem;
+    padding-bottom: 0.5rem;
+}
+
+.title-input {
+    font-family: var(--font-ios);
+    font-weight: 600;
+}
+
+.input-grid {
+    display: flex;
+    gap: 2rem;
+    width: 100%;
+}
+
+.input-plasma {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1;
+}
+
+.input-plasma label {
+    font-size: 0.7rem;
+    color: rgba(255, 255, 255, 0.4);
+    margin-bottom: 0.5rem;
+}
+
+.signal-line {
+    width: 1px;
+    background: rgba(255, 255, 255, 0.2);
+}
+
+/* Control Pills */
+.control-pills {
+    display: flex;
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.pill-save,
+.pill-delete {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    background: var(--plasma-white);
+    color: black;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
+    transition: transform 0.2s;
+}
+
+.pill-save:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
+}
+
+.pill-delete {
+    width: auto;
+    border-radius: 30px;
+    padding: 0 1.5rem;
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.6);
+    background: rgba(255, 255, 255, 0.05);
+    display: flex;
+    gap: 0.5rem;
+}
+
+.bio-core {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--bio-green);
+    box-shadow: 0 0 15px var(--bio-green);
+}

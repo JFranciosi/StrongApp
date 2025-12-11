@@ -1,13 +1,321 @@
-body {
-  background-size: 400% 400%;
-  animation: gradient 15s ease infinite;
-  font-family: 'Comic Sans MS', 'Arial', cursive;
-  margin: 0;
-  padding: 0;
+:host {
+  display: block;
+  min-height: 100vh;
+  padding: 2rem 1rem;
+  /* True Void background */
+  background: radial-gradient(circle at 50% -20%, #111 0%, #000 80%);
 }
 
-@keyframes gradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
+.antigravity-list {
+  max-width: 500px;
+  margin: 0 auto;
+  perspective: 1000px;
+}
+
+/* --- Hero Section --- */
+.hero-section {
+  margin-bottom: 3rem;
+  perspective: 1000px;
+}
+
+.hero-glass {
+  background: var(--ios-glass-surface);
+  backdrop-filter: blur(30px) saturate(150%);
+  border-radius: 30px;
+  padding: 2rem 1.5rem;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.5),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.4s ease;
+}
+
+.hero-glass:hover {
+  transform: translateY(-5px);
+}
+
+.hero-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  opacity: 0.5;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin: 0;
+  letter-spacing: -2px;
+  background: linear-gradient(to bottom, #fff, rgba(255, 255, 255, 0.5));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
+}
+
+.hero-stats {
+  font-family: var(--font-mono);
+  color: var(--plasma-white);
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+  opacity: 0.7;
+  letter-spacing: 2px;
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* --- Liquid Buttons --- */
+.btn-liquid-primary,
+.btn-liquid-secondary {
+  padding: 1rem 2rem;
+  border-radius: 30px;
+  border: none;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-liquid-primary {
+  background: var(--plasma-white);
+  color: #ffffff;
+  box-shadow: 0 0 30px rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn-liquid-primary:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 50px rgba(255, 255, 255, 0.5);
+}
+
+.btn-liquid-secondary {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  backdrop-filter: blur(10px);
+}
+
+.btn-liquid-secondary:hover {
+  background: rgba(255, 255, 255, 0.2);
+  transform: scale(1.05);
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+}
+
+.list-label {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  margin: 0;
+  letter-spacing: 1px;
+}
+
+.count-badge {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 0.2rem 0.6rem;
+  border-radius: 12px;
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* --- Tracker --- */
+.volume-tracker {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  color: rgba(255, 255, 255, 0.5);
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.volume-val {
+  color: var(--plasma-white);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+}
+
+/* --- Stack --- */
+.stack-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* --- Physics Card --- */
+.liquid-card {
+  position: relative;
+  height: 90px;
+  /* Convex Height */
+  transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  cursor: pointer;
+}
+
+.liquid-card:hover {
+  transform: translateY(-2px) scale(1.02);
+}
+
+.glass-surface {
+  position: absolute;
+  inset: 0;
+  border-radius: 20px;
+  background: var(--ios-glass-surface);
+  backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow:
+    0 10px 40px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  /* Convex Highlight */
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+/* --- Content Modes --- */
+.convex-content {
+  height: 100%;
+  padding: 0 2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  animation: fade-in 0.3s ease;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.card-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.5px;
+  color: white;
+}
+
+.mini-stats {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.3rem;
+}
+
+.stat-pill {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.2rem 0.6rem;
+  border-radius: 8px;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.6);
+  font-weight: 500;
+}
+
+.weight-pill {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.card-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.icon-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.edit-btn {
+  background: rgba(255, 255, 255, 0.05);
+  color: rgba(255, 255, 255, 0.5);
+}
+
+.edit-btn:hover {
+  background: rgba(255, 255, 255, 0.2);
+  color: white;
+}
+
+.delete-btn {
+  background: rgba(255, 69, 58, 0.1);
+  color: #ff453a;
+}
+
+.delete-btn:hover {
+  background: rgba(255, 69, 58, 0.3);
+}
+
+.hero-icon-container {
+  margin-bottom: 1rem;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-icon {
+  color: gold;
+  filter: drop-shadow(0 0 10px gold);
+}
+
+/* --- Liquid Morph Bubble --- */
+.insert-zone {
+  display: flex;
+  justify-content: center;
+  padding: 2rem 0;
+}
+
+.liquid-morph-bubble {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: var(--ios-glass-surface);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  filter: url('#liquid-displacement');
+  /* Core effect */
+  transition: transform 0.3s;
+  backdrop-filter: blur(10px);
+}
+
+.liquid-morph-bubble:hover {
+  transform: scale(1.1);
+}
+
+.bubble-core {
+  font-size: 2rem;
+  color: white;
+  pointer-events: none;
 }

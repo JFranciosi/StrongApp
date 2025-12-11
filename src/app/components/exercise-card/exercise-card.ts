@@ -1,88 +1,44 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
-import { Exercise } from '../../models/models';
+import { Component, computed } from '@angular/core';
+import { LucideAngularModule } from 'lucide-angular';
+import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { ExerciseService } from '../../services/exercise.service';
+import { Exercise } from '../../models/models';
 
 @Component({
   selector: 'app-exercise-card',
-  imports: [CommonModule],
+  standalone: true,
+  imports: [CommonModule, LucideAngularModule],
   templateUrl: './exercise-card.html',
   styleUrl: './exercise-card.css'
 })
 export class ExerciseCard {
-  protected readonly title = signal('gym-app');
-  
-  exercises: Exercise[] = [
-  {
-    id: 1,
-    name: 'Panca piana con bilanciere',
-    muscleGroup: 'petto',
-    sets: 3,
-    reps: 8,
-    weightKg: 50,
-    notes: 'Focus sulla tecnica, niente rimbalzi'
-  },
-  {
-    id: 2,
-    name: 'Lat machine avanti',
-    muscleGroup: 'schiena',
-    sets: 3,
-    reps: 10,
-    weightKg: 40,
-    notes: 'Tirare al petto senza slanci'
-  },
-  {
-    id: 3,
-    name: 'Squat al multipower',
-    muscleGroup: 'gambe',
-    sets: 4,
-    reps: 8,
-    weightKg: 60,
-    notes: 'Scendere almeno a parallelo'
-  },
-  {
-    id: 4,
-    name: 'Curl manubri in piedi',
-    muscleGroup: 'bicipiti',
-    sets: 3,
-    reps: 12,
-    weightKg: 10
-  },
-  {
-    id: 5,
-    name: 'French press bilanciere EZ',
-    muscleGroup: 'tricipiti',
-    sets: 3,
-    reps: 10,
-    weightKg: 25
-  },
-  {
-    id: 6,
-    name: 'Plank',
-    muscleGroup: 'core',
-    sets: 3,
-    reps: 30,
-    notes: '30 secondi a serie'
-  }
-];
 
-  insertExercise() {
-    console.log('Inserisci nuovo esercizio');
-    alert('Funzione INSERISCI - Da implementare! ');
+  exercises: () => Exercise[];
+
+  constructor(private exerciseService: ExerciseService, private router: Router) {
+    this.exercises = this.exerciseService.exercises;
   }
 
-  editExercise(id: number) {
-    console.log('Modifica esercizio con id:', id);
-    alert(`Funzione MODIFICA per esercizio ID ${id} - Da implementare!`);
+  totalVolume = computed(() => {
+    return this.exercises().reduce((acc, ex) => acc + (ex.weightKg || 0) * ex.reps * ex.sets, 0);
+  });
+
+  goToAdd() {
+    this.router.navigate(['/add']);
   }
 
-  deleteExercise(id: number) {
-    console.log('Elimina esercizio con id:', id);
-    const confirmed = confirm(`Sei sicuro di voler eliminare questo esercizio?`);
-    if (confirmed) {
-      this.exercises = this.exercises.filter(ex => ex.id !== id);
-      alert('Esercizio eliminato!');
+  goToEdit(id: number) {
+    this.router.navigate(['/edit', id]);
+  }
+
+  goToWorkouts() {
+    alert('Workout Module - Coming Soon in Liquid v3.0');
+  }
+
+  deleteItem(id: number) {
+    if (confirm('Dissolve this item?')) {
+      this.exerciseService.deleteExercise(id);
     }
   }
-
 }

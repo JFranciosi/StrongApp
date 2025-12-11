@@ -1,1 +1,39 @@
-<p>add-exercise works!</p>
+<div class="main-container">
+    <div class="liquid-card concave">
+        <div class="glass-surface">
+            <div class="concave-valley">
+                <h2 class="page-title">NEW EXERCISE</h2>
+
+                <input type="text" placeholder="EXERCISE NAME" class="plasma-input title-input" [ngModel]="name()"
+                    (ngModelChange)="name.set($event)">
+
+                <div class="input-grid">
+                    <div class="input-plasma">
+                        <label>WEIGHT</label>
+                        <input type="number" class="plasma-input" [ngModel]="weight()"
+                            (ngModelChange)="weight.set($event)">
+                    </div>
+
+                    <div class="signal-line"></div>
+
+                    <div class="input-plasma">
+                        <label>REPS</label>
+                        <input type="number" class="plasma-input" [ngModel]="reps()" (ngModelChange)="reps.set($event)">
+                    </div>
+                </div>
+
+                <div class="control-pills">
+                    <button class="pill-save" (click)="save()">
+                        <lucide-icon name="plus" size="24" color="black"></lucide-icon>
+                        <!-- <div class="bio-core"></div> -->
+                    </button>
+                    <button class="pill-delete" (click)="back()">
+                        <lucide-icon name="x" size="20"></lucide-icon>
+                        CLOSE
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

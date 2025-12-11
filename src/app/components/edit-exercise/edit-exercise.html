@@ -1,1 +1,38 @@
-<p>edit-exercise works!</p>
+<div class="main-container">
+    <div class="liquid-card concave">
+        <div class="glass-surface">
+            <div class="concave-valley">
+                <h2 class="page-title">EDIT EXERCISE // ID: {{ exerciseId }}</h2>
+
+                <input type="text" class="plasma-input title-input" [ngModel]="name()"
+                    (ngModelChange)="name.set($event)">
+
+                <div class="input-grid">
+                    <div class="input-plasma">
+                        <label>WEIGHT</label>
+                        <input type="number" class="plasma-input" [ngModel]="weight()"
+                            (ngModelChange)="weight.set($event)">
+                    </div>
+
+                    <div class="signal-line"></div>
+
+                    <div class="input-plasma">
+                        <label>REPS</label>
+                        <input type="number" class="plasma-input" [ngModel]="reps()" (ngModelChange)="reps.set($event)">
+                    </div>
+                </div>
+
+                <div class="control-pills">
+                    <button class="pill-save" (click)="save()">
+                        <lucide-icon name="pencil" size="24" color="black"></lucide-icon>
+                    </button>
+                    <button class="pill-delete" (click)="back()">
+                        <lucide-icon name="chevron-left" size="20"></lucide-icon>
+                        CANCEL
+                    </button>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>

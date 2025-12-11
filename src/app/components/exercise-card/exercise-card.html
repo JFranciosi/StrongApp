@@ -1,32 +1,67 @@
-<main class="main">
-  <div class="content">
-    <h1> PALESTRA ONLINE - Elenco Esercizi </h1>    
-    <div class="button-container">
-      <button class="btn-insert" (click)="insertExercise()">
-         INSERISCI NUOVO ESERCIZIO
-      </button>
-    </div>
+<div class="antigravity-list">
 
-    @for (item of exercises; track item.id) {
-    <div class="exercise-card">
-      <h2>{{ item.name }}</h2>
-      <p><strong> Gruppo muscolare:</strong> {{ item.muscleGroup }}</p>
-      <p><strong> Serie:</strong> {{ item.sets }} | <strong> Ripetizioni:</strong> {{ item.reps }}</p>
-      @if (item.weightKg) {
-      <p><strong> Peso (kg):</strong> {{ item.weightKg }}</p>
-      }
-      @if (item.notes) {
-      <p><strong> Note:</strong> {{ item.notes }}</p>
-      }
-      <div class="button-group">
-        <button class="btn-edit" (click)="editExercise(item.id)">
-           MODIFICA
+  <!-- Hero Section (Liquid Monolith) -->
+  <section class="hero-section">
+    <div class="hero-glass">
+      <div class="hero-icon-container">
+        <lucide-icon name="trophy" class="hero-icon"></lucide-icon>
+      </div>
+      <h1 class="hero-title">STRONG APP</h1>
+      <div class="hero-stats">
+        <span>VOLUME: {{ totalVolume() }} KG</span>
+      </div>
+
+      <!-- Action Bar -->
+      <div class="hero-actions">
+        <button class="btn-liquid-primary" (click)="goToAdd()">
+          <lucide-icon name="plus" size="18"></lucide-icon>
+          <span>NEW EXERCISE</span>
         </button>
-        <button class="btn-delete" (click)="deleteExercise(item.id)">
-           ELIMINA
+        <button class="btn-liquid-secondary" (click)="goToWorkouts()">
+          <lucide-icon name="dumbbell" size="18"></lucide-icon>
+          <span>WORKOUTS</span>
         </button>
       </div>
     </div>
+  </section>
+
+  <!-- The Stack -->
+  <div class="stack-container">
+    <div class="list-header">
+      <h3 class="list-label">ACTIVE EXERCISES</h3>
+      <span class="count-badge">{{ exercises().length }}</span>
+    </div>
+
+    @for (item of exercises(); track item.id) {
+
+    <!-- Liquid Card -->
+    <div class="liquid-card" (click)="goToEdit(item.id)">
+      <div class="glass-surface">
+        <div class="convex-content">
+
+          <div class="card-left">
+            <h2 class="card-title">{{ item.name }}</h2>
+            <div class="mini-stats">
+              <span class="stat-pill">{{ item.sets }} SETS</span>
+              <span class="stat-pill">{{ item.reps }} REPS</span>
+              <span class="stat-pill weight-pill">{{ item.weightKg }} KG</span>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="card-actions">
+            <button class="icon-btn edit-btn" (click)="$event.stopPropagation(); goToEdit(item.id)">
+              <lucide-icon name="pencil" size="16"></lucide-icon>
+            </button>
+            <button class="icon-btn delete-btn" (click)="$event.stopPropagation(); deleteItem(item.id)">
+              <lucide-icon name="trash-2" size="16"></lucide-icon>
+            </button>
+          </div>
+
+        </div>
+      </div>
+    </div>
     }
+
   </div>
-</main>
+</div>

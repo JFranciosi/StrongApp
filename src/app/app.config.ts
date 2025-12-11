@@ -2,18 +2,17 @@ import { ApplicationConfig, importProvidersFrom, provideBrowserGlobalErrorListen
 import { provideRouter } from '@angular/router';
 
 import { routes } from './app.routes';
-import { LucideAngularModule, Pencil, Plus, X } from 'lucide-angular';
+import { LucideAngularModule, Pencil, Plus, X, Trash2, Dumbbell, Trophy, ChevronLeft } from 'lucide-angular';
 import { provideHttpClient } from '@angular/common/http';
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideBrowserGlobalErrorListeners(),
     provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes),  
+    provideRouter(routes),
     provideHttpClient(),
-        importProvidersFrom(
-      LucideAngularModule.pick({X,Pencil,Plus
-      })
+    importProvidersFrom(
+      LucideAngularModule.pick({ X, Pencil, Plus, Trash2, Dumbbell, Trophy, ChevronLeft })
     ),
   ],
 };
