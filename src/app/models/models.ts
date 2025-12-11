@@ -1,7 +1,7 @@
 export interface Exercise {
   id: number;
   name: string;
-  muscleGroup: string; // per ora semplice stringa: 'petto', 'schiena', ecc.
+  muscleGroup: string;
   sets: number;
   reps: number;
   weightKg?: number;
