@@ -1,6 +1,6 @@
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Exercise } from './models/exercise';
+import { Exercise } from './models/models';
 import { ExerciseCard } from "./components/exercise-card/exercise-card";
 
 @Component({
