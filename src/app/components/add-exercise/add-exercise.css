@@ -84,35 +84,41 @@
 
 .pill-save,
 .pill-delete {
-    width: 60px;
-    height: 60px;
-    border-radius: 50%;
+    width: auto;
+    border-radius: 30px;
+    padding: 0 1.5rem;
+    font-size: 0.8rem;
+    font-weight: 600;
     border: 1px solid rgba(255, 255, 255, 0.1);
     background: rgba(255, 255, 255, 0.05);
     display: flex;
     align-items: center;
     justify-content: center;
     cursor: pointer;
+    color: rgba(255, 255, 255, 0.6);
+    gap: 0.5rem;
+    transition: all 0.2s ease;
+    height: 50px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.pill-save {
     background: var(--plasma-white);
-    color: #ffffff;
+    color: black;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
-    transition: transform 0.2s;
+    font-weight: 700;
+    /* Extra bold for readability */
 }
 
 .pill-save:hover {
-    transform: scale(1.1);
+    transform: scale(1.05);
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
 }
 
-.pill-delete {
-    width: auto;
-    border-radius: 30px;
-    padding: 0 1.5rem;
-    font-size: 0.8rem;
-    color: rgba(255, 255, 255, 0.6);
-    background: rgba(255, 255, 255, 0.05);
-    display: flex;
-    gap: 0.5rem;
+.pill-delete:hover {
+    background: rgba(255, 255, 255, 0.1);
+    color: white;
 }
 
 .bio-core {

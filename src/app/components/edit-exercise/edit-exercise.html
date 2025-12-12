@@ -2,7 +2,7 @@
     <div class="liquid-card concave">
         <div-glass variant="surface">
             <div class="concave-valley">
-                <h2 class="page-title">EDIT EXERCISES {{ exerciseId }}</h2>
+                <h2 class="page-title"> Edit Exercise</h2>
 
                 <input type="text" class="plasma-input title-input" [ngModel]="name()"
                     (ngModelChange)="name.set($event)">
@@ -24,11 +24,12 @@
 
                 <div class="control-pills">
                     <button class="pill-save" (click)="save()">
-                        <lucide-icon name="pencil" size="24" color="black"></lucide-icon>
+                        <lucide-icon name="check" size="20"></lucide-icon>
+                        SAVE
                     </button>
                     <button class="pill-delete" (click)="back()">
-                        <lucide-icon name="chevron-left" size="20"></lucide-icon>
-                        CANCEL
+                        <lucide-icon name="x" size="20"></lucide-icon>
+                        CLOSE
                     </button>
                 </div>
 
