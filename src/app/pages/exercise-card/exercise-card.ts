@@ -7,16 +7,22 @@ import { Exercise } from '../../models/models';
 import { DivGlass } from "../../components/div-glass/div-glass";
 import { SearchBar, SearchFilters } from '../../components/search-bar/search-bar';
 
+import { Modal } from '../../components/modal/modal';
+
 @Component({
   selector: 'app-exercise-card',
   standalone: true,
-  imports: [CommonModule, LucideAngularModule, DivGlass, SearchBar],
+  imports: [CommonModule, LucideAngularModule, DivGlass, SearchBar, Modal],
   templateUrl: './exercise-card.html',
   styleUrl: './exercise-card.css'
 })
 export class ExerciseCard {
 
   filters = signal<SearchFilters>({ name: '', weight: null, reps: null, sets: null });
+
+  // Modal State
+  isDeleteModalOpen = false;
+  itemToDeleteId: number | null = null;
 
   exercises = computed(() => {
     const all = this.exerciseService.exercises();
@@ -49,9 +55,21 @@ export class ExerciseCard {
     alert('Workout Module - Coming Soon in Liquid v3.0');
   }
 
+  // Open modal instead of confirm()
   deleteItem(id: number) {
-    if (confirm('Dissolve this item?')) {
-      this.exerciseService.deleteExercise(id);
+    this.itemToDeleteId = id;
+    this.isDeleteModalOpen = true;
+  }
+
+  confirmDelete() {
+    if (this.itemToDeleteId) {
+      this.exerciseService.deleteExercise(this.itemToDeleteId);
+      this.closeModal();
     }
+  }
+
+  closeModal() {
+    this.isDeleteModalOpen = false;
+    this.itemToDeleteId = null;
   }
 }

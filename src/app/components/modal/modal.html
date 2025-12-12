@@ -1,0 +1,14 @@
+<div class="backdrop" (click)="onCancel()"></div>
+<div class="modal-content">
+    <div-glass variant="surface">
+        <div class="modal-body">
+            <h3 class="modal-title">{{ title }}</h3>
+            <p class="modal-message">{{ message }}</p>
+
+            <div class="modal-actions">
+                <button class="btn-cancel" (click)="onCancel()">Cancel</button>
+                <button class="btn-confirm" (click)="onConfirm()">Delete</button>
+            </div>
+        </div>
+    </div-glass>
+</div>
