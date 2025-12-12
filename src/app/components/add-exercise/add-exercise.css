@@ -10,22 +10,11 @@
     margin: 0 auto;
 }
 
-/* Reuse the Liquid Card Logic */
 .liquid-card {
     position: relative;
     height: 400px;
 }
 
-.glass-surface {
-    position: absolute;
-    inset: 0;
-    border-radius: 30px;
-    background: var(--ios-glass-pressed);
-    /* Concave Default */
-    backdrop-filter: blur(30px) saturate(180%);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    box-shadow: inset 0 10px 40px rgba(0, 0, 0, 0.6);
-}
 
 .concave-valley {
     height: 100%;
@@ -44,7 +33,6 @@
     font-family: var(--font-ios);
 }
 
-/* Plasma Inputs */
 .plasma-input {
     background: transparent;
     border: none;
@@ -106,7 +94,7 @@
     justify-content: center;
     cursor: pointer;
     background: var(--plasma-white);
-    color: black;
+    color: #ffffff;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     transition: transform 0.2s;
 }

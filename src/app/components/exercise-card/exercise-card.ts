@@ -4,11 +4,12 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ExerciseService } from '../../services/exercise.service';
 import { Exercise } from '../../models/models';
+import { DivGlass } from "../div-glass/div-glass";
 
 @Component({
   selector: 'app-exercise-card',
   standalone: true,
-  imports: [CommonModule, LucideAngularModule],
+  imports: [CommonModule, LucideAngularModule, DivGlass],
   templateUrl: './exercise-card.html',
   styleUrl: './exercise-card.css'
 })

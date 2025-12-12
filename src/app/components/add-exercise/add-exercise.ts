@@ -4,11 +4,12 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ExerciseService } from '../../services/exercise.service';
+import { DivGlass } from "../div-glass/div-glass";
 
 @Component({
   selector: 'app-add-exercise',
   standalone: true,
-  imports: [CommonModule, FormsModule, LucideAngularModule],
+  imports: [CommonModule, FormsModule, LucideAngularModule, DivGlass],
   templateUrl: './add-exercise.html',
   styleUrl: './add-exercise.css'
 })

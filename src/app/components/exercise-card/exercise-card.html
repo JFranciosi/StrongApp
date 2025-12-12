@@ -2,7 +2,7 @@
 
   <!-- Hero Section (Liquid Monolith) -->
   <section class="hero-section">
-    <div class="hero-glass">
+    <div-glass variant="hero">
       <div class="hero-icon-container">
         <lucide-icon name="trophy" class="hero-icon"></lucide-icon>
       </div>
@@ -22,7 +22,7 @@
           <span>WORKOUTS</span>
         </button>
       </div>
-    </div>
+    </div-glass>
   </section>
 
   <!-- The Stack -->
@@ -36,7 +36,7 @@
 
     <!-- Liquid Card -->
     <div class="liquid-card" (click)="goToEdit(item.id)">
-      <div class="glass-surface">
+      <div-glass variant="surface" [hasHover]="true">
         <div class="convex-content">
 
           <div class="card-left">
@@ -59,7 +59,7 @@
           </div>
 
         </div>
-      </div>
+      </div-glass>
     </div>
     }
 

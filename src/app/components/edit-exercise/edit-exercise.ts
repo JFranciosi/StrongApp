@@ -5,11 +5,12 @@ import { FormsModule } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ExerciseService } from '../../services/exercise.service';
 import { Exercise } from '../../models/models';
+import { DivGlass } from "../div-glass/div-glass";
 
 @Component({
   selector: 'app-edit-exercise',
   standalone: true,
-  imports: [CommonModule, FormsModule, LucideAngularModule],
+  imports: [CommonModule, FormsModule, LucideAngularModule, DivGlass],
   templateUrl: './edit-exercise.html',
   styleUrl: './edit-exercise.css'
 })

@@ -1,8 +1,8 @@
 <div class="main-container">
     <div class="liquid-card concave">
-        <div class="glass-surface">
+        <div-glass variant="surface">
             <div class="concave-valley">
-                <h2 class="page-title">EDIT EXERCISE // ID: {{ exerciseId }}</h2>
+                <h2 class="page-title">EDIT EXERCISES {{ exerciseId }}</h2>
 
                 <input type="text" class="plasma-input title-input" [ngModel]="name()"
                     (ngModelChange)="name.set($event)">
@@ -33,6 +33,6 @@
                 </div>
 
             </div>
-        </div>
+        </div-glass>
     </div>
 </div>
