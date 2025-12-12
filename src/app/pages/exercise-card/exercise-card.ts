@@ -4,8 +4,8 @@ import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ExerciseService } from '../../services/exercise.service';
 import { Exercise } from '../../models/models';
-import { DivGlass } from "../div-glass/div-glass";
-import { SearchBar, SearchFilters } from '../search-bar/search-bar';
+import { DivGlass } from "../../components/div-glass/div-glass";
+import { SearchBar, SearchFilters } from '../../components/search-bar/search-bar';
 
 @Component({
   selector: 'app-exercise-card',

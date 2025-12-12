@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ExerciseService } from '../../services/exercise.service';
 import { Exercise } from '../../models/models';
-import { DivGlass } from "../div-glass/div-glass";
+import { DivGlass } from "../../components/div-glass/div-glass";
 
 @Component({
   selector: 'app-edit-exercise',

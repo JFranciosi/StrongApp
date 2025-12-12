@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
-import { ExerciseCard } from './components/exercise-card/exercise-card';
-import { AddExercise } from './components/add-exercise/add-exercise';
-import { EditExercise } from './components/edit-exercise/edit-exercise';
+import { ExerciseCard } from './pages/exercise-card/exercise-card';
+import { AddExercise } from './pages/add-exercise/add-exercise';
+import { EditExercise } from './pages/edit-exercise/edit-exercise';
 
 export const routes: Routes = [
     {

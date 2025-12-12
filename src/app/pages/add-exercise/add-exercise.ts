@@ -4,7 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ExerciseService } from '../../services/exercise.service';
-import { DivGlass } from "../div-glass/div-glass";
+import { DivGlass } from "../../components/div-glass/div-glass";
 
 @Component({
   selector: 'app-add-exercise',
