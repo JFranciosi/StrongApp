@@ -1,0 +1,31 @@
+<div-glass variant="surface">
+    <div class="search-container">
+        <!-- Main Search Input -->
+        <div class="search-main">
+            <lucide-icon name="search" size="20" class="search-icon"></lucide-icon>
+            <input type="text" placeholder="Search exercises..." [ngModel]="name()"
+                (ngModelChange)="name.set($event); updateFilters()" class="main-input">
+        </div>
+
+        <!-- Filter Sliders Row -->
+        <div class="filter-row">
+            <div class="filter-group">
+                <span class="filter-label">SETS: {{ sets() || 'ALL' }}</span>
+                <input type="range" min="0" max="10" step="1" [ngModel]="sets() || 0"
+                    (ngModelChange)="onSliderChange('sets', $event)" class="filter-slider">
+            </div>
+
+            <div class="filter-group">
+                <span class="filter-label">REPS: {{ reps() || 'ALL' }}</span>
+                <input type="range" min="0" max="50" step="1" [ngModel]="reps() || 0"
+                    (ngModelChange)="onSliderChange('reps', $event)" class="filter-slider">
+            </div>
+
+            <div class="filter-group">
+                <span class="filter-label">KG: {{ weight() || 'ALL' }}</span>
+                <input type="range" min="0" max="200" step="1" [ngModel]="weight() || 0"
+                    (ngModelChange)="onSliderChange('weight', $event)" class="filter-slider">
+            </div>
+        </div>
+    </div>
+</div-glass>

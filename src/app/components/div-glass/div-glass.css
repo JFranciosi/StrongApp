@@ -1,8 +1,20 @@
 :host {
-    display: contents;
-    --glass-bg: rgba(25, 25, 25, 0.6);
-    --glass-border: rgba(255, 255, 255, 0.1);
-    --glass-shadow: rgba(0, 0, 0, 0.5);
+    display: block;
+    position: relative;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    transform: translateZ(0);
+    /* will-change: transform; removed to prevent blurriness */
+}
+
+:host(:hover),
+:host(:focus-within) {
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.18);
 }
 
 .hero-glass {
@@ -38,14 +50,12 @@
         0 10px 40px rgba(0, 0, 0, 0.4),
         inset 0 1px 0 rgba(255, 255, 255, 0.4);
     overflow: hidden;
-    transition: all 0.5s ease;
+    overflow: hidden;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+    /* Ensure full width */
 }
 
-/* Hover Effects */
-.hover-effect:hover {
-    transform: translateY(-5px);
-}
-
-.glass-surface.hover-effect:hover {
+.glass-surface:hover {
     transform: translateY(-2px) scale(1.02);
 }

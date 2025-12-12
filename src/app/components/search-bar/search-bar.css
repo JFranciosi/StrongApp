@@ -1,0 +1,130 @@
+:host {
+    display: block;
+    margin: 0 0 -1rem 0;
+}
+
+.search-container {
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.search-main {
+    display: flex;
+    align-items: center;
+    gap: 0.8rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+}
+
+.search-icon {
+    color: rgba(255, 255, 255, 0.4);
+}
+
+.main-input {
+    background: transparent;
+    border: none;
+    color: white;
+    font-family: var(--font-ios);
+    font-size: 1rem;
+    width: 100%;
+    outline: none;
+}
+
+.main-input::placeholder {
+    color: rgba(255, 255, 255, 0.3);
+}
+
+.filter-row {
+    display: flex;
+    gap: 1rem;
+    justify-content: space-between;
+}
+
+.filter-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+    flex: 1;
+    min-width: 0;
+    /* Critical for flex resizing */
+    background: rgba(255, 255, 255, 0.03);
+    padding: 0.8rem 0.5rem;
+    min-height: 70px;
+    /* Force height for content */
+    border-radius: 12px;
+}
+
+.filter-label {
+    font-size: 0.75rem;
+    color: #ffffff;
+    /* FORCE WHITE */
+    opacity: 1;
+    /* FORCE VISIBILITY */
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    text-align: center;
+    width: 100%;
+    display: block;
+    /* Ensure it takes space */
+}
+
+/* Slider Styles */
+
+.filter-slider {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 100%;
+    height: 4px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    outline: none;
+    margin: 12px 0;
+    /* Consistent margin */
+    padding: 0;
+    /* Reset padding */
+    border: none;
+    /* Reset border */
+    cursor: pointer;
+    position: relative;
+    z-index: 10;
+    display: block;
+    /* Ensure block */
+}
+
+.filter-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background: var(--plasma-white);
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.4);
+    transition: transform 0.1s ease;
+}
+
+.filter-slider::-webkit-slider-runnable-track {
+    width: 100%;
+    height: 4px;
+    cursor: pointer;
+    background: transparent;
+    border-radius: 2px;
+    border: none;
+}
+
+.filter-slider::-webkit-slider-thumb {
+    margin-top: -6px;
+    transition: transform 0.1s;
+}
+
+.filter-slider:hover::-webkit-slider-thumb {
+    transform: scale(1.2);
+}
+
+.filter-slider:hover::-moz-range-thumb {
+    transform: scale(1.2);
+}

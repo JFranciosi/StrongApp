@@ -1,10 +1,9 @@
 <div class="antigravity-list">
 
-  <!-- Hero Section (Liquid Monolith) -->
+  <!-- Hero Section -->
   <section class="hero-section">
     <div-glass variant="hero">
       <div class="hero-icon-container">
-        <!-- <lucide-icon name="trophy" class="hero-icon"></lucide-icon> -->
         <img src="/bg-gym.png" alt="Hero Logo" class="hero-logo">
       </div>
       <h1 class="hero-title">Gymaholic</h1>
@@ -28,6 +27,8 @@
 
   <!-- The Stack -->
   <div class="stack-container">
+    <app-search-bar (filtersChange)="filters.set($event)"></app-search-bar>
+
     <div class="list-header">
       <h3 class="list-label">ACTIVE EXERCISES</h3>
       <span class="count-badge">{{ exercises().length }}</span>
@@ -37,7 +38,7 @@
 
     <!-- Liquid Card -->
     <div class="liquid-card" (click)="goToEdit(item.id)">
-      <div-glass variant="surface" [hasHover]="true">
+      <div-glass variant="surface" [hasHover]="true" className="fill-parent">
         <div class="convex-content">
 
           <div class="card-left">

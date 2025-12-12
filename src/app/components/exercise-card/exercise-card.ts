@@ -1,28 +1,40 @@
-import { Component, computed } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { LucideAngularModule } from 'lucide-angular';
 import { Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { ExerciseService } from '../../services/exercise.service';
 import { Exercise } from '../../models/models';
 import { DivGlass } from "../div-glass/div-glass";
+import { SearchBar, SearchFilters } from '../search-bar/search-bar';
 
 @Component({
   selector: 'app-exercise-card',
   standalone: true,
-  imports: [CommonModule, LucideAngularModule, DivGlass],
+  imports: [CommonModule, LucideAngularModule, DivGlass, SearchBar],
   templateUrl: './exercise-card.html',
   styleUrl: './exercise-card.css'
 })
 export class ExerciseCard {
 
-  exercises: () => Exercise[];
+  filters = signal<SearchFilters>({ name: '', weight: null, reps: null, sets: null });
+
+  exercises = computed(() => {
+    const all = this.exerciseService.exercises();
+    const f = this.filters();
+    return all.filter(ex => {
+      const matchName = !f.name || ex.name.toLowerCase().includes(f.name.toLowerCase());
+      const matchWeight = !f.weight || ex.weightKg === f.weight;
+      const matchReps = !f.reps || ex.reps === f.reps;
+      const matchSets = !f.sets || ex.sets === f.sets;
+      return matchName && matchWeight && matchReps && matchSets;
+    });
+  });
 
   constructor(private exerciseService: ExerciseService, private router: Router) {
-    this.exercises = this.exerciseService.exercises;
   }
 
   totalVolume = computed(() => {
-    return this.exercises().reduce((acc, ex) => acc + (ex.weightKg || 0) * ex.reps * ex.sets, 0);
+    return this.exerciseService.exercises().reduce((acc, ex) => acc + (ex.weightKg || 0) * ex.reps * ex.sets, 0);
   });
 
   goToAdd() {
