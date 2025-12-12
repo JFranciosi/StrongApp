@@ -1,11 +1,15 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { Exercise } from './models/models';
+import { Footer } from './components/footer/footer';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
-  templateUrl: './app.html',
+  standalone: true,
+  imports: [RouterOutlet, Footer],
+  template: `
+    <router-outlet></router-outlet>
+    <app-footer></app-footer>
+  `,
   styleUrl: './app.css'
 })
 export class App {
