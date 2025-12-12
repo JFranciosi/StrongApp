@@ -45,3 +45,18 @@
     font-size: 0.75rem;
     font-family: monospace;
 }
+
+@media (max-width: 576px) {
+    .app-footer {
+        padding: 1.5rem 1rem;
+        margin-top: 2rem;
+    }
+
+    .footer-links {
+        gap: 1rem;
+    }
+
+    .footer-links a {
+        font-size: 0.75rem;
+    }
+}

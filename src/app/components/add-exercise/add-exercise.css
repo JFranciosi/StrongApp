@@ -107,7 +107,6 @@
     color: black;
     box-shadow: 0 0 20px rgba(255, 255, 255, 0.2);
     font-weight: 700;
-    /* Extra bold for readability */
 }
 
 .pill-save:hover {
@@ -126,4 +125,41 @@
     border-radius: 50%;
     background: var(--bio-green);
     box-shadow: 0 0 15px var(--bio-green);
+}
+
+@media (max-width: 576px) {
+    :host {
+        padding: 1rem;
+    }
+
+    .liquid-card {
+        height: auto;
+        min-height: 480px;
+    }
+
+    .concave-valley {
+        padding: 1.5rem;
+        gap: 1.5rem;
+    }
+
+    .input-grid {
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .plasma-input {
+        font-size: 1.5rem;
+    }
+
+    .control-pills {
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .pill-save,
+    .pill-delete {
+        width: 100%;
+        height: 48px;
+    }
 }
