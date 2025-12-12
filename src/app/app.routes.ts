@@ -2,21 +2,28 @@ import { Routes } from '@angular/router';
 import { ExerciseCard } from './pages/exercise-card/exercise-card';
 import { AddExercise } from './pages/add-exercise/add-exercise';
 import { EditExercise } from './pages/edit-exercise/edit-exercise';
+import { Workouts } from './pages/workouts/workouts';
+import { CreateWorkout } from './pages/create-workout/create-workout';
 
 export const routes: Routes = [
     {
         path: "",
-        component: ExerciseCard,
-        title: "Home"
+        component: ExerciseCard
     },
     {
         path: "add",
-        component: AddExercise,
-        title: "Add Exercise"
+        component: AddExercise
     },
     {
         path: "edit/:id",
-        component: EditExercise,
-        title: "Edit Exercise"
+        component: EditExercise
+    },
+    {
+        path: 'workouts',
+        component: Workouts
+    },
+    {
+        path: 'workouts/create',
+        component: CreateWorkout
     }
 ];

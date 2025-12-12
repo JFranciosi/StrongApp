@@ -13,6 +13,9 @@ export class Modal {
     @Input() title: string = '';
     @Input() message: string = '';
     @Input() isOpen: boolean = false;
+    @Input() confirmText: string = 'Delete';
+    @Input() cancelText: string = 'Cancel';
+    @Input() isAlert: boolean = false;
 
     @Output() confirm = new EventEmitter<void>();
     @Output() cancel = new EventEmitter<void>();

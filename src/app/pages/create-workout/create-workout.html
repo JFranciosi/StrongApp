@@ -1,0 +1,94 @@
+<div class="antigravity-list">
+    <div-glass variant="surface">
+        <div style="padding: 1.5rem; display: flex; flex-direction: column; gap: 2rem;">
+            <div class="header">
+                <button class="icon-btn back-btn" (click)="goBack()">
+                    <lucide-icon name="arrow-left" size="24"></lucide-icon>
+                </button>
+                <h1 class="page-title">NEW WORKOUT</h1>
+                <div style="width: 40px;"></div>
+            </div>
+
+            <!-- Name Input -->
+            <div class="input-section">
+                <input type="text" class="plasma-input title-input" placeholder="WORKOUT NAME" [ngModel]="workoutName()"
+                    (ngModelChange)="workoutName.set($event)">
+            </div>
+
+            <!-- Exercises List -->
+            <div class="exercises-list">
+                @for (ex of addedExercises(); track $index) {
+                <div class="exercise-card">
+                    <div-glass variant="surface" className="fill-parent">
+                        <div class="card-content">
+                            <div class="card-header">
+                                <span class="ex-name">{{ getExerciseName(ex.exerciseId) }}</span>
+                                <button class="remove-btn" (click)="removeExercise($index)">
+                                    <lucide-icon name="x" size="16"></lucide-icon>
+                                </button>
+                            </div>
+
+                            <div class="config-grid">
+                                <div class="config-item">
+                                    <label>SETS</label>
+                                    <input type="number" class="plasma-input small" [(ngModel)]="ex.sets">
+                                </div>
+                                <div class="config-item">
+                                    <label>REPS</label>
+                                    <input type="number" class="plasma-input small" [(ngModel)]="ex.reps">
+                                </div>
+                                <div class="config-item">
+                                    <label>REST (s)</label>
+                                    <input type="number" class="plasma-input small" [(ngModel)]="ex.restSeconds">
+                                </div>
+                            </div>
+                        </div>
+                    </div-glass>
+                </div>
+                }
+            </div>
+
+            <!-- Add Exercise Trigger -->
+            <button class="add-exercise-btn" (click)="toggleSelector()">
+                <lucide-icon name="plus" size="20"></lucide-icon>
+                ADD EXERCISE
+            </button>
+
+            <!-- Save Action -->
+            <div class="actions">
+                <button class="pill-save" (click)="saveRelay()">
+                    <lucide-icon name="check" size="20"></lucide-icon>
+                    CREATE WORKOUT
+                </button>
+            </div>
+        </div>
+    </div-glass>
+
+    <!-- Exercise Selector Overlay -->
+    @if (isSelectorOpen) {
+    <div class="selector-overlay">
+        <div class="selector-content">
+            <div-glass variant="surface">
+                <div class="selector-body">
+                    <div class="selector-header">
+                        <h3>Select Exercise</h3>
+                        <button class="close-selector" (click)="toggleSelector()">Close</button>
+                    </div>
+                    <div class="selector-list">
+                        @for (exercise of availableExercises(); track exercise.id) {
+                        <div class="selector-item" (click)="addExercise(exercise.id)">
+                            <span>{{ exercise.name }}</span>
+                            <lucide-icon name="plus-circle" size="16"></lucide-icon>
+                        </div>
+                        }
+                    </div>
+                </div>
+            </div-glass>
+        </div>
+    </div>
+    }
+
+    <app-modal [isOpen]="isAlertOpen" [title]="alertTitle" [message]="alertMessage" [isAlert]="true" confirmText="OK"
+        (confirm)="closeAlert()" (cancel)="closeAlert()">
+    </app-modal>
+</div>

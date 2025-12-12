@@ -19,8 +19,6 @@ import { Modal } from '../../components/modal/modal';
 export class ExerciseCard {
 
   filters = signal<SearchFilters>({ name: '', weight: null, reps: null, sets: null });
-
-  // Modal State
   isDeleteModalOpen = false;
   itemToDeleteId: number | null = null;
 
@@ -52,7 +50,7 @@ export class ExerciseCard {
   }
 
   goToWorkouts() {
-    alert('Workout Module - Coming Soon in Liquid v3.0');
+    this.router.navigate(['/workouts']);
   }
 
   // Open modal instead of confirm()
