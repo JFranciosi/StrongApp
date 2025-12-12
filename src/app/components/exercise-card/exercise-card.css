@@ -2,8 +2,6 @@
   display: block;
   min-height: 100vh;
   padding: 2rem 1rem;
-  /* True Void background */
-  background: radial-gradient(circle at 50% -20%, #111 0%, #000 80%);
 }
 
 .antigravity-list {
@@ -239,14 +237,16 @@
 }
 
 .hero-icon-container {
-  margin-bottom: 1rem;
+  margin: -4rem 1rem -8rem 1rem;
   display: flex;
   justify-content: center;
 }
 
-.hero-icon {
-  color: gold;
-  filter: drop-shadow(0 0 10px gold);
+.hero-logo {
+  max-width: 350px;
+  height: auto;
+  opacity: 0.9;
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.2));
 }
 
 .insert-zone {

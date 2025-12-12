@@ -2,7 +2,6 @@
     display: block;
     min-height: 100vh;
     padding: 2rem;
-    background: radial-gradient(circle at 50% -20%, #111 0%, #000 80%);
 }
 
 .main-container {
