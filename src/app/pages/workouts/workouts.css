@@ -50,11 +50,6 @@
     gap: 1rem;
 }
 
-/* Nested glass cards for items */
-.workout-card {
-    /* No extra margin needed if parent has padding */
-}
-
 .card-content {
     padding: 1.2rem;
     display: flex;

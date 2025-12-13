@@ -1,0 +1,26 @@
+<header class="navbar">
+    <div class="navbar-content">
+        <!-- BRAND -->
+        <div class="brand">
+            <img src="/bg-gym.webp" alt="Gymaholic Logo" class="logo">
+            <h1 class="title">GYMAHOLIC</h1>
+        </div>
+
+        <!-- DESKTOP NAV -->
+        <nav class="desktop-only nav-links">
+            <a routerLink="/" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+                class="nav-item">Home</a>
+            <a routerLink="/workouts" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}"
+                class="nav-item">Workouts</a>
+            <a routerLink="/add" routerLinkActive="active" class="nav-item">New Exercise</a>
+            <a routerLink="/workouts/create" routerLinkActive="active" class="nav-item">New Workout</a>
+        </nav>
+
+        <!-- MOBILE MENU BTN -->
+        <div class="mobile-only">
+            <button class="icon-btn" (click)="toggleMenu()">
+                <lucide-icon name="menu" size="24"></lucide-icon>
+            </button>
+        </div>
+    </div>
+</header>

@@ -1,0 +1,31 @@
+<div class="menu-overlay" [class.open]="isOpen" (click)="close()">
+    <div class="menu-content" (click)="$event.stopPropagation()">
+        <div class="menu-inner">
+            <div class="menu-header">
+                <div class="header-logo-group">
+                    <img src="/bg-gym.webp" alt="Gymaholic Logo" class="logo">
+                    <h2 class="menu-title">GYMAHOLIC</h2>
+                </div>
+                <button class="close-btn" (click)="close()" aria-label="Close Menu">
+                    <lucide-icon name="x" size="24"></lucide-icon>
+                </button>
+            </div>
+
+            <nav class="nav-links">
+                <button class="nav-item" (click)="navigate('/')">
+                    <lucide-icon name="home" size="20"></lucide-icon>
+                    <span>HOME</span>
+                </button>
+                <button class="nav-item" (click)="navigate('/workouts')">
+                    <lucide-icon name="dumbbell" size="20"></lucide-icon>
+                    <span>WORKOUTS</span>
+                </button>
+                <button class="nav-item" (click)="navigate('/add')">
+                    <lucide-icon name="plus-circle" size="20"></lucide-icon>
+                    <span>NEW EXERCISE</span>
+                </button>
+                <button class="nav-item" (click)="navigate('/workouts/create')">
+                    <lucide-icon name="file-plus" size="20"></lucide-icon>
+                    <span>NEW WORKOUT</span>
+                </button>
+            </nav>
