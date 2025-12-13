@@ -4,6 +4,7 @@ import { AddExercise } from './pages/add-exercise/add-exercise';
 import { EditExercise } from './pages/edit-exercise/edit-exercise';
 import { Workouts } from './pages/workouts/workouts';
 import { CreateWorkout } from './pages/create-workout/create-workout';
+import { NotFound } from './pages/not-found/not-found';
 
 export const routes: Routes = [
     {
@@ -25,5 +26,9 @@ export const routes: Routes = [
     {
         path: 'workouts/create',
         component: CreateWorkout
+    },
+    {
+        path: '**',
+        component: NotFound
     }
 ];
