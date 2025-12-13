@@ -28,20 +28,8 @@
     justify-content: center;
 }
 
-.footer-links a {
-    color: rgba(255, 255, 255, 0.5);
-    text-decoration: none;
-    font-size: 0.85rem;
-    font-family: var(--font-ios, sans-serif);
-    transition: color 0.2s ease;
-}
-
-.footer-links a:hover {
-    color: white;
-}
-
 .footer-copy {
-    color: rgba(255, 255, 255, 0.3);
+    color: rgba(255, 255, 255, 0.927);
     font-size: 0.75rem;
     font-family: monospace;
 }
