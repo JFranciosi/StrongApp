@@ -38,8 +38,14 @@
                                     <input type="number" class="plasma-input small" [(ngModel)]="ex.reps">
                                 </div>
                                 <div class="config-item">
-                                    <label>REST (s)</label>
-                                    <input type="number" class="plasma-input small" [(ngModel)]="ex.restSeconds">
+                                    <label>REST</label>
+                                    <div class="input-wrapper">
+                                        <input type="text" class="plasma-input small" [ngModel]="ex.uiDisplayValue"
+                                            (ngModelChange)="updateRestValue($index, $event)">
+                                        <button class="unit-toggle-abs" (click)="toggleRestUnit($index)">
+                                            {{ ex.uiUnit }}
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>

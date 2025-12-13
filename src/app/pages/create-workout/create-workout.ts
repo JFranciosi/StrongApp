@@ -9,6 +9,11 @@ import { DivGlass } from '../../components/div-glass/div-glass';
 import { WorkoutExercise } from '../../models/models';
 import { Modal } from '../../components/modal/modal';
 
+interface UiWorkoutExercise extends WorkoutExercise {
+    uiUnit: 's' | 'm';
+    uiDisplayValue: number;
+}
+
 @Component({
     selector: 'app-create-workout',
     standalone: true,
@@ -23,7 +28,7 @@ export class CreateWorkout {
     private router = inject(Router);
 
     workoutName = signal('');
-    addedExercises = signal<WorkoutExercise[]>([]);
+    addedExercises = signal<UiWorkoutExercise[]>([]);
     availableExercises = this.exerciseService.exercises;
     isAlertOpen = false;
     alertTitle = '';
@@ -37,11 +42,13 @@ export class CreateWorkout {
     }
 
     addExercise(exerciseId: number) {
-        const newEx: WorkoutExercise = {
+        const newEx: UiWorkoutExercise = {
             exerciseId: exerciseId,
             sets: 3,
             reps: 10,
-            restSeconds: 90
+            restSeconds: 90,
+            uiUnit: 's',
+            uiDisplayValue: 90
         };
         this.addedExercises.update(list => [...list, newEx]);
         this.isSelectorOpen = false;
@@ -49,6 +56,41 @@ export class CreateWorkout {
 
     removeExercise(index: number) {
         this.addedExercises.update(list => list.filter((_, i) => i !== index));
+    }
+
+    updateRestValue(index: number, value: number) {
+        this.addedExercises.update(list => {
+            const newList = [...list];
+            const item = { ...newList[index] };
+            item.uiDisplayValue = value;
+
+            if (item.uiUnit === 'm') {
+                item.restSeconds = Math.round(value * 60);
+            } else {
+                item.restSeconds = value;
+            }
+
+            newList[index] = item;
+            return newList;
+        });
+    }
+
+    toggleRestUnit(index: number) {
+        this.addedExercises.update(list => {
+            const newList = [...list];
+            const item = { ...newList[index] };
+
+            if (item.uiUnit === 's') {
+                item.uiUnit = 'm';
+                item.uiDisplayValue = parseFloat((item.restSeconds / 60).toFixed(1));
+            } else {
+                item.uiUnit = 's';
+                item.uiDisplayValue = item.restSeconds;
+            }
+
+            newList[index] = item;
+            return newList;
+        });
     }
 
     getExerciseName(id: number): string {
@@ -65,9 +107,17 @@ export class CreateWorkout {
             return;
         }
 
+        const cleanExercises: WorkoutExercise[] = this.addedExercises().map(ex => ({
+            exerciseId: ex.exerciseId,
+            sets: ex.sets,
+            reps: ex.reps,
+            restSeconds: ex.restSeconds,
+            notes: ex.notes
+        }));
+
         this.workoutService.addWorkout({
             name: this.workoutName(),
-            exercises: this.addedExercises()
+            exercises: cleanExercises
         });
 
         this.router.navigate(['/workouts']);
