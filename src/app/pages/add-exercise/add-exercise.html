@@ -38,3 +38,7 @@
         </div-glass>
     </div>
 </div>
+
+<app-modal [isOpen]="isAlertOpen" title="Missing Information" [message]="alertMessage" [isAlert]="true" confirmText="OK"
+    (confirm)="closeAlert()" (cancel)="closeAlert()">
+</app-modal>
