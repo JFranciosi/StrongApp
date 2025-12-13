@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnDestroy, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnDestroy, OnInit, Output, ChangeDetectorRef } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { DivGlass } from '../div-glass/div-glass';
 
@@ -17,6 +17,9 @@ export class RestTimer implements OnInit, OnDestroy {
     secondsLeft: number = 60;
     isRunning = false;
     private intervalId: any;
+    private endTime: number = 0;
+
+    constructor(private cdr: ChangeDetectorRef) { }
 
     get progressPercentage(): number {
         return Math.min(100, (this.secondsLeft / this.duration) * 100);
@@ -33,13 +36,20 @@ export class RestTimer implements OnInit, OnDestroy {
     startTimer() {
         this.isRunning = true;
         this.stopTimer();
+        this.endTime = Date.now() + (this.secondsLeft * 1000);
 
         this.intervalId = setInterval(() => {
-            this.secondsLeft--;
-            if (this.secondsLeft <= 0) {
+            const now = Date.now();
+            const diff = this.endTime - now;
+
+            this.secondsLeft = Math.max(0, diff / 1000);
+
+            if (diff <= 0) {
+                this.secondsLeft = 0;
                 this.complete();
             }
-        }, 1000);
+            this.cdr.markForCheck();
+        }, 50);
     }
 
     stopTimer() {
@@ -50,7 +60,14 @@ export class RestTimer implements OnInit, OnDestroy {
     }
 
     addTime() {
-        this.secondsLeft += 30;
+        this.endTime += 30000;
+        const now = Date.now();
+        const diff = this.endTime - now;
+        this.secondsLeft = Math.max(0, diff / 1000);
+
+        if (this.secondsLeft > 0 && !this.isRunning) {
+            this.startTimer();
+        }
     }
 
     close() {
@@ -64,8 +81,9 @@ export class RestTimer implements OnInit, OnDestroy {
     }
 
     formatTime(seconds: number): string {
-        const m = Math.floor(seconds / 60);
-        const s = seconds % 60;
-        return `${m}:${s.toString().padStart(2, '0')}`;
+        const s = Math.ceil(seconds);
+        const m = Math.floor(s / 60);
+        const rem = s % 60;
+        return `${m}:${rem.toString().padStart(2, '0')}`;
     }
 }
