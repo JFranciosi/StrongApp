@@ -10,7 +10,6 @@
   perspective: 1000px;
 }
 
-/* --- Hero Section --- */
 .hero-section {
   margin-bottom: 3rem;
   perspective: 1000px;
@@ -335,43 +334,5 @@
     flex-direction: column;
     align-items: center;
     gap: 0.5rem;
-  }
-}
-
-@media (min-width: 1024px) {
-  .antigravity-list {
-    max-width: 1200px;
-  }
-
-  .stack-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
-
-  app-search-bar,
-  .list-header {
-    grid-column: 1 / -1;
-  }
-
-  .liquid-card {
-    height: 100%;
-    min-height: 140px;
-  }
-
-  .hero-section {
-    padding: 2rem 0;
-  }
-
-  .hero-logo {
-    max-width: 500px;
-  }
-
-  .hero-title {
-    font-size: 4rem;
-  }
-
-  .hero-stats {
-    font-size: 1.2rem;
   }
 }

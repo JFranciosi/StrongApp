@@ -5,20 +5,21 @@
                 <h2 class="page-title">NEW EXERCISE</h2>
 
                 <input type="text" placeholder="EXERCISE NAME" class="plasma-input title-input" [ngModel]="name()"
-                    (ngModelChange)="name.set($event)">
+                    (ngModelChange)="name.set($event)" aria-label="Exercise Name">
 
                 <div class="input-grid">
                     <div class="input-plasma">
                         <label>WEIGHT</label>
                         <input type="number" class="plasma-input" [ngModel]="weight()"
-                            (ngModelChange)="weight.set($event)">
+                            (ngModelChange)="weight.set($event)" aria-label="Weight in Kilograms">
                     </div>
 
                     <div class="signal-line"></div>
 
                     <div class="input-plasma">
                         <label>REPS</label>
-                        <input type="number" class="plasma-input" [ngModel]="reps()" (ngModelChange)="reps.set($event)">
+                        <input type="number" class="plasma-input" [ngModel]="reps()" (ngModelChange)="reps.set($event)"
+                            aria-label="Repetitions">
                     </div>
                 </div>
 

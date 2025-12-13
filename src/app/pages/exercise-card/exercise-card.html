@@ -37,7 +37,8 @@
     @for (item of exercises(); track item.id) {
 
     <!-- Liquid Card -->
-    <div class="liquid-card" (click)="goToEdit(item.id)">
+    <div class="liquid-card" (click)="goToEdit(item.id)" (keydown.enter)="goToEdit(item.id)"
+      (keydown.space)="goToEdit(item.id)" role="button" tabindex="0" [attr.aria-label]="'Edit ' + item.name">
       <div-glass variant="surface" [hasHover]="true" className="fill-parent">
         <div class="convex-content">
 
@@ -52,10 +53,12 @@
 
           <!-- Quick Actions -->
           <div class="card-actions">
-            <button class="icon-btn edit-btn" (click)="$event.stopPropagation(); goToEdit(item.id)">
+            <button class="icon-btn edit-btn" (click)="$event.stopPropagation(); goToEdit(item.id)"
+              aria-label="Edit Exercise">
               <lucide-icon name="pencil" size="16"></lucide-icon>
             </button>
-            <button class="icon-btn delete-btn" (click)="$event.stopPropagation(); deleteItem(item.id)">
+            <button class="icon-btn delete-btn" (click)="$event.stopPropagation(); deleteItem(item.id)"
+              aria-label="Delete Exercise">
               <lucide-icon name="trash-2" size="16"></lucide-icon>
             </button>
           </div>
