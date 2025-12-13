@@ -1,0 +1,78 @@
+<div class="antigravity-list">
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div-glass variant="hero">
+      <div class="hero-icon-container">
+        <img src="/bg-gym.webp" alt="Hero Logo" class="hero-logo">
+      </div>
+      <h1 class="hero-title">Gymaholic</h1>
+      <div class="hero-stats">
+        <span>VOLUME: {{ totalVolume() }} KG</span>
+      </div>
+
+      <!-- Action Bar -->
+      <div class="hero-actions">
+        <button class="btn-liquid-primary" (click)="goToAdd()">
+          <lucide-icon name="plus" size="18"></lucide-icon>
+          <span>NEW EXERCISE</span>
+        </button>
+        <button class="btn-liquid-secondary" (click)="goToWorkouts()">
+          <lucide-icon name="dumbbell" size="18"></lucide-icon>
+          <span>WORKOUTS</span>
+        </button>
+      </div>
+    </div-glass>
+  </section>
+
+  <!-- The Stack -->
+  <div class="stack-container">
+    <app-search-bar (filtersChange)="filters.set($event)"></app-search-bar>
+
+    <div class="list-header">
+      <h3 class="list-label">ACTIVE EXERCISES</h3>
+      <span class="count-badge">{{ exercises().length }}</span>
+    </div>
+
+    @for (item of exercises(); track item.id) {
+
+    <!-- Liquid Card -->
+    <div class="liquid-card" (click)="goToEdit(item.id)" (keydown.enter)="goToEdit(item.id)"
+      (keydown.space)="goToEdit(item.id)" role="button" tabindex="0" [attr.aria-label]="'Edit ' + item.name">
+      <div-glass variant="surface" [hasHover]="true" className="fill-parent">
+        <div class="convex-content">
+
+          <div class="card-left">
+            <h2 class="card-title">{{ item.name }}</h2>
+            <div class="mini-stats">
+              <span class="stat-pill">{{ item.sets }} SETS</span>
+              <span class="stat-pill">{{ item.reps }} REPS</span>
+              <span class="stat-pill weight-pill">{{ item.weightKg }} KG</span>
+            </div>
+          </div>
+
+          <!-- Quick Actions -->
+          <div class="card-actions">
+            <button class="icon-btn edit-btn" (click)="$event.stopPropagation(); goToEdit(item.id)"
+              aria-label="Edit Exercise">
+              <lucide-icon name="pencil" size="16"></lucide-icon>
+            </button>
+            <button class="icon-btn delete-btn" (click)="$event.stopPropagation(); deleteItem(item.id)"
+              aria-label="Delete Exercise">
+              <lucide-icon name="trash-2" size="16"></lucide-icon>
+            </button>
+          </div>
+
+        </div>
+      </div-glass>
+    </div>
+    }
+
+  </div>
+
+</div>
+
+<app-modal [isOpen]="isDeleteModalOpen" title="Delete Exercise"
+  message="Are you sure you want to delete this exercise? This action cannot be undone." (confirm)="confirmDelete()"
+  (cancel)="closeModal()">
+</app-modal>

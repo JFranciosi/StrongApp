@@ -1,0 +1,46 @@
+:host {
+    display: block;
+    position: relative;
+    border-radius: 24px;
+    background: rgba(227, 232, 246, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    backdrop-filter: blur(12px) url('#liquid-glass');
+    -webkit-backdrop-filter: blur(12px) url('#liquid-glass');
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.35);
+    transform: translateZ(0);
+}
+
+:host(:hover),
+:host(:focus-within) {
+    background: rgba(255, 255, 255, 0.09);
+    border-color: rgba(255, 255, 255, 0.18);
+}
+
+.hero-glass {
+    background: var(--ios-glass-surface, var(--glass-bg));
+    backdrop-filter: blur(8px) saturate(100%);
+    border-radius: 30px;
+    padding: 2rem 1.5rem;
+    border: 1px solid var(--glass-border);
+    box-shadow:
+        0 20px 50px var(--glass-shadow),
+        inset 0 1px 0 rgba(255, 255, 255, 0.3);
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.4s ease;
+}
+
+.glass-surface {
+    position: relative;
+    background: var(--ios-glass-surface, var(--glass-bg));
+    backdrop-filter: blur(8px) saturate(100%);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow:
+        0 10px 40px rgba(0, 0, 0, 0.4),
+        inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    overflow: hidden;
+    overflow: hidden;
+    transition: transform 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+    width: 100%;
+}

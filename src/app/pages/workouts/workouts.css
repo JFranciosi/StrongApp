@@ -1,0 +1,145 @@
+:host {
+    display: block;
+    min-height: 100vh;
+    padding: 2rem 1rem;
+    padding-bottom: 6rem;
+}
+
+.antigravity-list {
+    max-width: 500px;
+    margin: 0 auto;
+    perspective: 1000px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+}
+
+.page-title {
+    font-size: 1.5rem;
+    font-weight: 800;
+    margin: 0;
+    letter-spacing: 2px;
+    color: white;
+}
+
+.icon-btn {
+    background: rgba(255, 255, 255, 0.1);
+    border: none;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: background 0.2s;
+}
+
+.icon-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+}
+
+.workout-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.card-content {
+    padding: 1.2rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.workout-name {
+    margin: 0;
+    font-size: 1.1rem;
+    color: white;
+}
+
+.exercise-count {
+    font-size: 0.8rem;
+    color: rgba(255, 255, 255, 0.5);
+    margin-top: 0.2rem;
+    display: block;
+}
+
+.delete-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 69, 58, 0.6);
+    cursor: pointer;
+    padding: 0.5rem;
+    border-radius: 50%;
+    transition: all 0.2s;
+}
+
+.delete-btn:hover {
+    color: #ff453a;
+    background: rgba(255, 69, 58, 0.1);
+}
+
+.new-btn {
+    background: var(--plasma-white);
+    color: black;
+}
+
+.new-btn:hover {
+    background: white;
+    box-shadow: 0 0 15px rgba(255, 255, 255, 0.4);
+}
+
+.empty-state {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.3);
+    margin: 4rem auto;
+    font-style: italic;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-items: center;
+    min-height: 100px;
+}
+
+@media (min-width: 1024px) {
+    .antigravity-list {
+        max-width: 1200px;
+    }
+
+    .workout-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    .empty-state {
+        grid-column: 1 / -1;
+    }
+
+    .workout-card {
+        height: 100%;
+    }
+
+    .card-content {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .card-info {
+        width: 100%;
+    }
+
+    .delete-btn {
+        align-self: flex-end;
+    }
+}

@@ -1,0 +1,41 @@
+<div class="antigravity-list">
+    <div-glass variant="surface">
+        <div style="padding: 1.5rem;">
+            <div class="header">
+                <button class="icon-btn back-btn" (click)="goBack()">
+                    <lucide-icon name="arrow-left" size="24"></lucide-icon>
+                </button>
+                <h1 class="page-title">WORKOUTS</h1>
+                <button class="icon-btn new-btn" (click)="goToCreate()">
+                    <lucide-icon name="plus" size="24"></lucide-icon>
+                </button>
+            </div>
+
+            <div class="workout-list">
+                @for (workout of workouts(); track workout.id) {
+                <div class="workout-card">
+                    <div-glass variant="surface" [hasHover]="true">
+                        <div class="card-content" (click)="runWorkout(workout.id)" style="cursor: pointer;">
+                            <div class="card-info">
+                                <h3 class="workout-name">{{ workout.name }}</h3>
+                                <span class="exercise-count">{{ workout.exercises.length }} Exercises</span>
+                            </div>
+                            <button class="delete-btn" (click)="$event.stopPropagation(); deleteWorkout(workout.id)">
+                                <lucide-icon name="trash-2" size="18"></lucide-icon>
+                            </button>
+                        </div>
+                    </div-glass>
+                </div>
+                } @empty {
+                <div class="empty-state">
+                    <span>No workouts found. Create one!</span>
+                </div>
+                }
+            </div>
+        </div>
+    </div-glass>
+
+    <app-modal [isOpen]="isModalOpen" [title]="modalTitle" [message]="modalMessage" (confirm)="onConfirmDelete()"
+        (cancel)="closeModal()">
+    </app-modal>
+</div>

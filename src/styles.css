@@ -1,1 +1,57 @@
-/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap');
+
+:root {
+    --plasma-white: #ffffff;
+    --bio-green: #2aff6f;
+    --font-ios: 'Inter', sans-serif;
+    --font-mono: 'monospace';
+    --ios-glass-surface: rgba(30, 30, 30, 0.6);
+    --ios-glass-pressed: rgba(0, 0, 0, 0.4);
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #050505;
+    background-image: url('assets/glass_test_bg.webp');
+    background-size: 110%;
+    background-attachment: fixed;
+    background-position: center;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+    width: 100vw;
+    overflow-x: hidden;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    display: none;
+}
+
+::-webkit-scrollbar-track {
+    background: #050505;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #333;
+    border-radius: 4px;
+}
+
+.desktop-only {
+    display: flex !important;
+}
+
+.mobile-only {
+    display: none !important;
+}
+
+@media (max-width: 576px) {
+    .desktop-only {
+        display: none !important;
+    }
+
+    .mobile-only {
+        display: block !important;
+    }
+}

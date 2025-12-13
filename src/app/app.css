@@ -1,0 +1,6 @@
+.app-content {
+    padding-top: 64px;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}

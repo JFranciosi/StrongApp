@@ -1,0 +1,31 @@
+<div-glass variant="surface">
+    <div class="search-container">
+        <!-- Main Search Input -->
+        <div class="search-main">
+            <lucide-icon name="search" size="20" class="search-icon"></lucide-icon>
+            <input type="text" placeholder="Search exercises..." [ngModel]="name()"
+                (ngModelChange)="name.set($event); updateFilters()" class="main-input">
+        </div>
+
+        <!-- Filter Inputs Row -->
+        <div class="filter-row">
+            <div class="filter-group">
+                <span class="filter-label">SETS</span>
+                <input type="number" placeholder="ALL" [ngModel]="sets()"
+                    (ngModelChange)="onInputChange('sets', $event)" class="filter-input">
+            </div>
+
+            <div class="filter-group">
+                <span class="filter-label">REPS</span>
+                <input type="number" placeholder="ALL" [ngModel]="reps()"
+                    (ngModelChange)="onInputChange('reps', $event)" class="filter-input">
+            </div>
+
+            <div class="filter-group">
+                <span class="filter-label">KG</span>
+                <input type="number" placeholder="ALL" [ngModel]="weight()"
+                    (ngModelChange)="onInputChange('weight', $event)" class="filter-input">
+            </div>
+        </div>
+    </div>
+</div-glass>

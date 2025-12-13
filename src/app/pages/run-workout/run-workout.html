@@ -1,0 +1,59 @@
+<!-- Header Card -->
+<div class="header-card">
+    <div-glass variant="surface">
+        <div class="header-content">
+            <button class="icon-btn back-btn" (click)="goBack()" aria-label="Go back">
+                <lucide-icon name="arrow-left" size="24"></lucide-icon>
+            </button>
+            <div class="title-section">
+                <h1>{{ workout()?.name || 'Workout' }}</h1>
+                <span class="subtitle">Runner Mode</span>
+            </div>
+            <button class="finish-btn-small" (click)="finishWorkout()">FINISH</button>
+        </div>
+    </div-glass>
+</div>
+
+<!-- Exercises -->
+<div class="exercise-list">
+    @for (ex of workout()?.exercises; track $index; let i = $index) {
+    <div class="exercise-card">
+        <div-glass variant="surface">
+            <div style="padding: 1.5rem;">
+                <div class="exercise-header">
+                    <div class="exercise-name">{{ getExerciseName(ex.exerciseId) }}</div>
+                    <button class="collapse-btn" (click)="toggleCollapse(i)"
+                        [attr.aria-label]="isCollapsed(i) ? 'Expand sets' : 'Collapse sets'">
+                        <lucide-icon [name]="isCollapsed(i) ? 'chevron-down' : 'chevron-up'" size="20"></lucide-icon>
+                    </button>
+                </div>
+
+                @if (!isCollapsed(i)) {
+                <div class="sets-grid">
+                    @for (set of getSetsArray(ex.sets); track $index; let j = $index) {
+                    <div class="set-row" [class.completed]="isSetCompleted(i, j)">
+                        <div class="set-info">
+                            Set {{ j + 1 }} • {{ ex.reps }} reps
+                        </div>
+                        <div class="set-check" [class.checked]="isSetCompleted(i, j)"
+                            (click)="toggleSet(i, j, ex.restSeconds)" (keydown.enter)="toggleSet(i, j, ex.restSeconds)"
+                            (keydown.space)="toggleSet(i, j, ex.restSeconds)" role="checkbox" tabindex="0"
+                            [attr.aria-checked]="isSetCompleted(i, j)" aria-label="Mark set as complete">
+                            @if (isSetCompleted(i, j)) {
+                            <lucide-icon name="check" size="16" color="white"></lucide-icon>
+                            }
+                        </div>
+                    </div>
+                    }
+                </div>
+                }
+            </div>
+        </div-glass>
+        @if (activeRestTimer && activeRestExerciseIndex === i) {
+        <app-rest-timer [duration]="activeRestDuration" (timerComplete)="onRestComplete()"
+            (timerClosed)="onRestClosed()">
+        </app-rest-timer>
+        }
+    </div>
+    }
+</div>
