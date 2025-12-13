@@ -1,39 +1,31 @@
 import { Routes } from '@angular/router';
-import { ExerciseCard } from './pages/exercise-card/exercise-card';
-import { AddExercise } from './pages/add-exercise/add-exercise';
-import { EditExercise } from './pages/edit-exercise/edit-exercise';
-import { Workouts } from './pages/workouts/workouts';
-import { CreateWorkout } from './pages/create-workout/create-workout';
-import { RunWorkout } from './pages/run-workout/run-workout';
-import { NotFound } from './pages/not-found/not-found';
-
 export const routes: Routes = [
     {
         path: "",
-        component: ExerciseCard
+        loadComponent: () => import('./pages/exercise-card/exercise-card').then(m => m.ExerciseCard)
     },
     {
         path: "add",
-        component: AddExercise
+        loadComponent: () => import('./pages/add-exercise/add-exercise').then(m => m.AddExercise)
     },
     {
         path: "edit/:id",
-        component: EditExercise
+        loadComponent: () => import('./pages/edit-exercise/edit-exercise').then(m => m.EditExercise)
     },
     {
         path: 'workouts',
-        component: Workouts
+        loadComponent: () => import('./pages/workouts/workouts').then(m => m.Workouts)
     },
     {
         path: 'workouts/create',
-        component: CreateWorkout
+        loadComponent: () => import('./pages/create-workout/create-workout').then(m => m.CreateWorkout)
     },
     {
         path: 'workouts/run/:id',
-        component: RunWorkout
+        loadComponent: () => import('./pages/run-workout/run-workout').then(m => m.RunWorkout)
     },
     {
         path: '**',
-        component: NotFound
+        loadComponent: () => import('./pages/not-found/not-found').then(m => m.NotFound)
     }
 ];

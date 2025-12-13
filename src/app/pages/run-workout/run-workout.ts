@@ -1,4 +1,4 @@
-import { Component, computed, inject, OnInit, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, computed, inject, OnInit, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ActivatedRoute, Router } from '@angular/router';
 import { LucideAngularModule } from 'lucide-angular';
@@ -12,7 +12,8 @@ import { RestTimer } from '../../components/rest-timer/rest-timer';
     standalone: true,
     imports: [CommonModule, LucideAngularModule, DivGlass, RestTimer],
     templateUrl: './run-workout.html',
-    styleUrls: ['./run-workout.css']
+    styleUrls: ['./run-workout.css'],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class RunWorkout implements OnInit {
     private route = inject(ActivatedRoute);
