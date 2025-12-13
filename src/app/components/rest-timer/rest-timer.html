@@ -1,0 +1,24 @@
+<div class="timer-modal">
+    <div-glass variant="surface">
+        <div class="timer-content">
+            <div class="timer-header">
+                <span class="timer-title">Rest Timer</span>
+                <span class="time-display">{{ formatTime(secondsLeft) }}</span>
+            </div>
+
+            <div class="progress-track">
+                <div class="progress-fill" [style.width.%]="progressPercentage"></div>
+            </div>
+
+            <div class="controls">
+                @if (!isRunning && secondsLeft === duration) {
+                <button class="btn-control btn-start" (click)="startTimer()">Start Rest</button>
+                <button class="btn-control btn-skip" (click)="close()">Skip</button>
+                } @else {
+                <button class="btn-control btn-skip" (click)="addTime()">+30s</button>
+                <button class="btn-control btn-start" (click)="close()">Stop</button>
+                }
+            </div>
+        </div>
+    </div-glass>
+</div>

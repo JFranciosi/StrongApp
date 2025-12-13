@@ -15,12 +15,12 @@
                 @for (workout of workouts(); track workout.id) {
                 <div class="workout-card">
                     <div-glass variant="surface" [hasHover]="true">
-                        <div class="card-content">
+                        <div class="card-content" (click)="runWorkout(workout.id)" style="cursor: pointer;">
                             <div class="card-info">
                                 <h3 class="workout-name">{{ workout.name }}</h3>
                                 <span class="exercise-count">{{ workout.exercises.length }} Exercises</span>
                             </div>
-                            <button class="delete-btn" (click)="deleteWorkout(workout.id)">
+                            <button class="delete-btn" (click)="$event.stopPropagation(); deleteWorkout(workout.id)">
                                 <lucide-icon name="trash-2" size="18"></lucide-icon>
                             </button>
                         </div>

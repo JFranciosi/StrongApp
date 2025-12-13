@@ -30,6 +30,10 @@ export class Workouts {
         this.router.navigate(['/workouts/create']);
     }
 
+    runWorkout(id: number) {
+        this.router.navigate(['/workouts/run', id]);
+    }
+
     deleteWorkout(id: number) {
         this.workoutToDeleteId = id;
         this.modalTitle = 'Delete Workout';
