@@ -9,7 +9,7 @@
                 <h1>{{ workout()?.name || 'Workout' }}</h1>
                 <span class="subtitle">Runner Mode</span>
             </div>
-            <div class="header-spacer"></div>
+            <button class="finish-btn-small" (click)="finishWorkout()">FINISH</button>
         </div>
     </div-glass>
 </div>
@@ -54,10 +54,3 @@
     </div>
     }
 </div>
-
-<!-- Finish Action -->
-@if (!activeRestTimer) {
-<div class="finish-bar">
-    <button class="finish-btn" (click)="finishWorkout()">FINISH WORKOUT</button>
-</div>
-}

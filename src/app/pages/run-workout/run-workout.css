@@ -72,11 +72,33 @@
 
 .exercise-header {
     margin-bottom: 1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .exercise-name {
     font-size: 1.2rem;
     font-weight: 700;
+    color: white;
+    margin: 0;
+}
+
+.collapse-btn {
+    background: transparent;
+    border: none;
+    color: rgba(255, 255, 255, 0.5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 50%;
+}
+
+.collapse-btn:hover {
+    background: rgba(255, 255, 255, 0.1);
     color: white;
 }
 
@@ -125,30 +147,38 @@
     border-color: var(--primary);
 }
 
-.finish-bar {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100;
-    padding: 1rem;
-    background: linear-gradient(to top, black 50%, transparent);
-    pointer-events: none;
-    display: flex;
-    justify-content: center;
-}
-
-.finish-btn {
-    pointer-events: auto;
-    width: 100%;
-    max-width: 500px;
-    padding: 1rem;
-    border: none;
-    border-radius: 12px;
+.finish-btn-small {
     background: white;
     color: black;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
     font-weight: 700;
-    font-size: 1rem;
+    font-size: 0.8rem;
     cursor: pointer;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.finish-btn-small:hover {
+    transform: scale(1.05);
+}
+
+@media (min-width: 1024px) {
+
+    .header-card,
+    .exercise-list {
+        max-width: 1200px;
+    }
+
+    .exercise-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+}
+
+app-rest-timer {
+    margin-top: 2.4rem;
+    display: block;
 }

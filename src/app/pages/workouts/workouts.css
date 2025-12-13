@@ -109,5 +109,43 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    align-items: center;
     min-height: 100px;
+}
+
+@media (min-width: 1024px) {
+    .antigravity-list {
+        max-width: 1200px;
+    }
+
+    .workout-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    .empty-state {
+        grid-column: 1 / -1;
+    }
+
+    .workout-card {
+        height: 100%;
+    }
+
+    .card-content {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 1rem;
+    }
+
+    .card-info {
+        width: 100%;
+    }
+
+    .delete-btn {
+        align-self: flex-end;
+    }
 }

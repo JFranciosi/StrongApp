@@ -267,3 +267,24 @@
 .unit-toggle-abs:hover {
     background: rgba(255, 255, 255, 0.2);
 }
+
+@media (min-width: 1024px) {
+    .antigravity-list {
+        max-width: 1200px;
+    }
+
+    .exercises-list {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 2rem;
+    }
+
+    .header,
+    .title-section,
+    .actions {
+        width: 100%;
+        max-width: 800px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

@@ -41,9 +41,9 @@ export class SearchBar implements OnInit {
         });
     }
 
-    onSliderChange(field: 'weight' | 'reps' | 'sets', value: number) {
-        // If 0, treat as null (ALL)
-        const val = value === 0 ? null : value;
+    onInputChange(field: 'weight' | 'reps' | 'sets', value: any) {
+        // If empty string or null, treat as null (ALL)
+        const val = (value === '' || value === null || value === undefined) ? null : Number(value);
         if (field === 'weight') this.weight.set(val);
         if (field === 'reps') this.reps.set(val);
         if (field === 'sets') this.sets.set(val);

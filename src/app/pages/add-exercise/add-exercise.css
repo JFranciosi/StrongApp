@@ -114,6 +114,37 @@
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
 }
 
+@media (min-width: 1024px) {
+    .antigravity-list {
+        max-width: 1200px;
+    }
+
+    .exercise-form {
+        max-width: 800px;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+    }
+
+    .header {
+        grid-column: 1 / -1;
+        max-width: 800px;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .name-section {
+        grid-column: 1 / -1;
+    }
+
+    .actions {
+        grid-column: 1 / -1;
+        display: flex;
+        justify-content: center;
+    }
+}
+
 .pill-delete:hover {
     background: rgba(255, 255, 255, 0.1);
     color: white;
