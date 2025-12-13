@@ -50,7 +50,6 @@
   margin-top: 2rem;
 }
 
-/* --- Liquid Buttons --- */
 .btn-liquid-primary,
 .btn-liquid-secondary {
   padding: 1rem 2rem;
@@ -115,7 +114,6 @@
   color: rgba(255, 255, 255, 0.7);
 }
 
-/* --- Tracker --- */
 .volume-tracker {
   display: flex;
   justify-content: space-between;

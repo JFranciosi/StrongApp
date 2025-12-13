@@ -163,7 +163,6 @@
     box-shadow: 0 0 30px rgba(255, 255, 255, 0.4);
 }
 
-/* Selector Overlay */
 .selector-overlay {
     position: fixed;
     inset: 0;

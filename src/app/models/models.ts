@@ -11,7 +11,7 @@ export interface WorkoutExercise {
   exerciseId: number;
   sets: number;
   reps: number;
-  restSeconds: number; // Rest time in seconds
+  restSeconds: number;
   notes?: string;
 }
 

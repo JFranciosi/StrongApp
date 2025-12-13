@@ -34,7 +34,9 @@
     transform: translateX(-100%);
     transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
     box-shadow: 10px 0 40px rgba(0, 0, 0, 0.8);
-    background: #080808;
+    background: transparent;
+    backdrop-filter: blur(4px);
+    -webkit-backdrop-filter: blur(4px);
     border-right: 1px solid rgba(255, 255, 255, 0.1);
 }
 
@@ -79,7 +81,6 @@
     height: 40px;
     object-fit: contain;
     border-radius: 50%;
-    /* Optional, makes it look like an app icon if square */
 }
 
 .close-btn {

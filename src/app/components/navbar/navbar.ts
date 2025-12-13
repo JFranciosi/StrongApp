@@ -21,10 +21,8 @@ export class Navbar {
         const currentScroll = window.scrollY || document.documentElement.scrollTop;
 
         if (currentScroll > this.lastScrollTop && currentScroll > 64) {
-            // Scrolling down & past navbar height
             this.isHidden = true;
         } else {
-            // Scrolling up
             this.isHidden = false;
         }
 

@@ -1,6 +1,5 @@
 .app-content {
     padding-top: 64px;
-    /* Height of Navbar */
     min-height: 100vh;
     display: flex;
     flex-direction: column;

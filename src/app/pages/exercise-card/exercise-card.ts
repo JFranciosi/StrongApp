@@ -53,7 +53,6 @@ export class ExerciseCard {
     this.router.navigate(['/workouts']);
   }
 
-  // Open modal instead of confirm()
   deleteItem(id: number) {
     this.itemToDeleteId = id;
     this.isDeleteModalOpen = true;
