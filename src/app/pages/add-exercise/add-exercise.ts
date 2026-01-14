@@ -42,7 +42,6 @@ export class AddExercise {
     this.exerciseService.addExercise({
       id: Date.now(),
       name: this.name(),
-      muscleGroup: 'New',
       weightKg: this.weight(),
       reps: this.reps(),
       sets: this.sets()

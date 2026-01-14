@@ -45,7 +45,6 @@ export class EditExercise {
       this.exerciseService.updateExercise({
         id: this.exerciseId,
         name: this.name(),
-        muscleGroup: 'Updated',
         weightKg: this.weight(),
         reps: this.reps(),
         sets: this.sets()

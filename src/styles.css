@@ -7,6 +7,8 @@
     --font-mono: 'monospace';
     --ios-glass-surface: rgba(30, 30, 30, 0.6);
     --ios-glass-pressed: rgba(0, 0, 0, 0.4);
+    --text-muted: rgba(255, 255, 255, 0.7);
+    --text-placeholder: rgba(255, 255, 255, 0.5);
 }
 
 body {

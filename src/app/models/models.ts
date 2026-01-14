@@ -1,7 +1,6 @@
 export interface Exercise {
   id: number;
   name: string;
-  muscleGroup: string;
   weightKg?: number;
   reps: number;
   sets: number;
@@ -12,7 +11,6 @@ export interface WorkoutExercise {
   sets: number;
   reps: number;
   restSeconds: number;
-  notes?: string;
 }
 
 export interface Workout {
@@ -20,5 +18,5 @@ export interface Workout {
   name: string;
   exercises: WorkoutExercise[];
   createdAt: Date;
-  notes?: string;
+  date?: string;
 }

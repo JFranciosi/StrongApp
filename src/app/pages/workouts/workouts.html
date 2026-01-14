@@ -18,7 +18,12 @@
                         <div class="card-content" (click)="runWorkout(workout.id)" style="cursor: pointer;">
                             <div class="card-info">
                                 <h3 class="workout-name">{{ workout.name }}</h3>
-                                <span class="exercise-count">{{ workout.exercises.length }} Exercises</span>
+                                <div
+                                    style="display: flex; gap: 8px; align-items: center; color: var(--text-secondary); font-size: 0.85rem;">
+                                    <span>{{ workout.exercises.length }} Exercises</span>
+                                    <span>•</span>
+                                    <span>{{ workout.date | date:'short' }}</span>
+                                </div>
                             </div>
                             <button class="delete-btn" (click)="$event.stopPropagation(); deleteWorkout(workout.id)">
                                 <lucide-icon name="trash-2" size="18"></lucide-icon>

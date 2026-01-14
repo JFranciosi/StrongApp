@@ -1,11 +1,11 @@
 import { Component, EventEmitter, HostBinding, Input, Output } from '@angular/core';
-import { CommonModule } from '@angular/common';
+
 import { DivGlass } from '../div-glass/div-glass';
 
 @Component({
     selector: 'app-modal',
     standalone: true,
-    imports: [CommonModule, DivGlass],
+    imports: [DivGlass],
     templateUrl: './modal.html',
     styleUrl: './modal.css'
 })
