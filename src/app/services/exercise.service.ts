@@ -12,9 +12,9 @@ export class ExerciseService {
     private loadExercises(): Exercise[] {
         const saved = localStorage.getItem('exercises');
         return saved ? JSON.parse(saved) : [
-            { id: 1, name: 'Panca piana', muscleGroup: 'Parta Alta', sets: 3, reps: 8, weightKg: 50 },
-            { id: 2, name: 'Lat machine', muscleGroup: 'Parta Alta', sets: 3, reps: 10, weightKg: 40 },
-            { id: 3, name: 'Squat', muscleGroup: 'Gambe', sets: 4, reps: 8, weightKg: 60 }
+            { id: 1, name: 'Panca piana', sets: 3, reps: 8, weightKg: 50 },
+            { id: 2, name: 'Lat machine', sets: 3, reps: 10, weightKg: 40 },
+            { id: 3, name: 'Squat', sets: 4, reps: 8, weightKg: 60 }
         ];
     }
 

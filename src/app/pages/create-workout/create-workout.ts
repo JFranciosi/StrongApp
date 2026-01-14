@@ -28,12 +28,23 @@ export class CreateWorkout {
     private router = inject(Router);
 
     workoutName = signal('');
+    workoutDate = signal(this.getCurrentDateTime());
     addedExercises = signal<UiWorkoutExercise[]>([]);
     availableExercises = this.exerciseService.exercises;
     isAlertOpen = false;
     alertTitle = '';
     alertMessage = '';
     isSelectorOpen = false;
+
+    private getCurrentDateTime(): string {
+        const now = new Date();
+        const year = now.getFullYear();
+        const month = String(now.getMonth() + 1).padStart(2, '0');
+        const day = String(now.getDate()).padStart(2, '0');
+        const hours = String(now.getHours()).padStart(2, '0');
+        const minutes = String(now.getMinutes()).padStart(2, '0');
+        return `${year}-${month}-${day}T${hours}:${minutes}`;
+    }
 
     constructor() { }
 
@@ -112,11 +123,11 @@ export class CreateWorkout {
             sets: ex.sets,
             reps: ex.reps,
             restSeconds: ex.restSeconds,
-            notes: ex.notes
         }));
 
         this.workoutService.addWorkout({
             name: this.workoutName(),
+            date: this.workoutDate(),
             exercises: cleanExercises
         });
 

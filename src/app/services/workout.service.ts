@@ -29,7 +29,8 @@ export class WorkoutService {
         const newWorkout: Workout = {
             ...workout,
             id: Date.now(),
-            createdAt: new Date()
+            createdAt: new Date(),
+            date: workout.date || new Date().toISOString()
         };
         const current = this.workoutsSignal();
         this.saveWorkouts([...current, newWorkout]);

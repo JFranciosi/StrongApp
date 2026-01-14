@@ -15,6 +15,12 @@
                     (ngModelChange)="workoutName.set($event)" aria-label="Workout Name">
             </div>
 
+            <!-- Date Input -->
+            <div class="input-section">
+                <input type="datetime-local" class="plasma-input title-input" [ngModel]="workoutDate()"
+                    (ngModelChange)="workoutDate.set($event)" aria-label="Workout Date" style="font-size: 1rem;">
+            </div>
+
             <!-- Exercises List -->
             <div class="exercises-list">
                 @for (ex of addedExercises(); track $index) {

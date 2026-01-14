@@ -6,7 +6,9 @@
             <p class="modal-message">{{ message }}</p>
 
             <div class="modal-actions">
-                <button *ngIf="!isAlert" class="btn-cancel" (click)="onCancel()">{{ cancelText }}</button>
+                @if (!isAlert) {
+                <button class="btn-cancel" (click)="onCancel()">{{ cancelText }}</button>
+                }
                 <button class="btn-confirm" (click)="onConfirm()">{{ confirmText }}</button>
             </div>
         </div>
