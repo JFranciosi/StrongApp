@@ -27,17 +27,15 @@
 .menu-content {
     position: absolute;
     top: 0;
-    left: 0;
+    right: 0;
     width: 80%;
     max-width: 320px;
     height: 100%;
-    transform: translateX(-100%);
+    transform: translateX(100%);
     transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-    box-shadow: 10px 0 40px rgba(0, 0, 0, 0.8);
-    background: transparent;
-    backdrop-filter: blur(4px);
-    -webkit-backdrop-filter: blur(4px);
-    border-right: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: -10px 0 40px rgba(0, 0, 0, 0.8);
+    background: #1e1e1e;
+    border-left: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .menu-overlay.open .menu-content {
