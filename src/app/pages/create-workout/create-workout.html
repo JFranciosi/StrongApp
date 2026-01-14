@@ -9,16 +9,17 @@
                 <div style="width: 40px;"></div>
             </div>
 
-            <!-- Name Input -->
-            <div class="input-section">
-                <input type="text" class="plasma-input title-input" placeholder="WORKOUT NAME" [ngModel]="workoutName()"
-                    (ngModelChange)="workoutName.set($event)" aria-label="Workout Name">
-            </div>
-
-            <!-- Date Input -->
-            <div class="input-section">
-                <input type="datetime-local" class="plasma-input title-input" [ngModel]="workoutDate()"
-                    (ngModelChange)="workoutDate.set($event)" aria-label="Workout Date" style="font-size: 1rem;">
+            <div class="header-inputs">
+                <!-- Name Input -->
+                <div class="input-section">
+                    <input type="text" class="plasma-input title-input" placeholder="WORKOUT NAME"
+                        [ngModel]="workoutName()" (ngModelChange)="workoutName.set($event)" aria-label="Workout Name">
+                </div>
+                <!-- Date Input -->
+                <div class="input-section">
+                    <input type="datetime-local" class="plasma-input date-input" [ngModel]="workoutDate()"
+                        (ngModelChange)="workoutDate.set($event)" aria-label="Workout Date">
+                </div>
             </div>
 
             <!-- Exercises List -->

@@ -52,7 +52,7 @@
 }
 
 .title-input {
-    font-size: 1.5rem;
+    font-size: 2rem;
     text-align: center;
     padding-bottom: 0.5rem;
     font-family: var(--font-ios);
@@ -60,7 +60,39 @@
 }
 
 .title-input::placeholder {
-    color: rgba(255, 255, 255, 0.2);
+    color: var(--text-placeholder);
+}
+
+.header-inputs {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}
+
+.date-input {
+    font-size: 1.2rem;
+    text-align: center;
+    font-family: var(--font-ios);
+    color: rgba(255, 255, 255, 0.9);
+    color-scheme: dark;
+    width: fit-content;
+
+    background: rgba(255, 255, 255, 0.06);
+    padding: 0.6rem 1.5rem;
+    border-radius: 30px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: all 0.2s ease;
+}
+
+.date-input:hover {
+    background: rgba(255, 255, 255, 0.1);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.date-input:focus {
+    background: rgba(255, 255, 255, 0.15);
+    border-color: rgba(255, 255, 255, 0.3);
 }
 
 .exercises-list {
@@ -107,7 +139,7 @@
 
 .config-item label {
     font-size: 0.7rem;
-    color: rgba(255, 255, 255, 0.4);
+    color: var(--text-muted);
     font-family: var(--font-mono);
 }
 
@@ -129,7 +161,7 @@
     align-items: center;
     justify-content: center;
     gap: 0.5rem;
-    transition: background 0.2s;
+    margin-top: -44px;
 }
 
 .add-exercise-btn:hover {
@@ -140,7 +172,7 @@
 .actions {
     display: flex;
     justify-content: center;
-    margin-top: 1rem;
+    margin-top: -0.8rem;
 }
 
 .pill-save {
@@ -220,7 +252,6 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    transition: background 0.2s;
 }
 
 .selector-item:hover {
